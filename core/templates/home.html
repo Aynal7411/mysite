@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - My Portfolio{% endblock %}
+
+{% block content %}
+    <header>
+        <h1>Welcome to My Portfolio</h1>
+        <p>Hello, I'm Aynal Haque, a passionate Web Developer.</p>
+    </header>
+
+    <section>
+        <h2>Skills</h2>
+        <ul>
+            {% for skill in skills %}
+                <li><strong>{{ skill.name }}</strong>: {{ skill.description }}</li>
+            {% empty %}
+                <li>No skills added yet.</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section>
+        <h2>Projects</h2>
+        <ul>
+            {% for project in projects %}
+                <li>
+                    <h3>{{ project.name }}</h3>
+                    <p>{{ project.description }}</p>
+                    <p><strong>Technologies used:</strong> {{ project.technologies }}</p>
+            
+                   
+                </li>
+            {% empty %}
+                <li>No projects added yet.</li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}
